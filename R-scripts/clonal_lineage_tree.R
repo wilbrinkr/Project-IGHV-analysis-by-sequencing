@@ -1,12 +1,12 @@
 # General information ----
-# Title: mutational frequency
+# Title: construction of clonal lineage trees
 # Author: Rick Wilbrink
 # Department: Rheumatology and Clinical Immunology
 # Affiliation: University Medical Center Groningen
 # Email: r.wilbrink01@umcg.nl
 # Collaboration: please ask permission from the author before using this script
 
-# importing libraries
+# importing libraries ----
 suppressPackageStartupMessages(library(airr))
 suppressPackageStartupMessages(library(alakazam))
 suppressPackageStartupMessages(library(dplyr))
@@ -21,11 +21,9 @@ library(dplyr)
 
 setwd(setwd("D:/Onedrive/PhD/Projecten/project - IGHVseq/databases/clones"))
 
-# read data 
+# reading data ----
 clones <- read_rearrangement(file.path("D:/Onedrive/PhD/Projecten/project - IGHVseq/databases/clones/allclones_final_combined.tsv"))
 colnames(clones) # show the column names in the database
-
-clones <- db
 
 #assign values to cell subsets, use function grepl(test, yes, no)
 clones$subset = ifelse(grepl("totalB",clones$sample), "Total B cells" , 0)

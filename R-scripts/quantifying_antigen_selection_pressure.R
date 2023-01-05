@@ -6,7 +6,7 @@
 # Email: r.wilbrink01@umcg.nl
 # Collaboration: please ask permission from the author before using this script
 
-# importing libraries
+# importing libraries ----
 suppressPackageStartupMessages(library(airr))
 suppressPackageStartupMessages(library(alakazam))
 suppressPackageStartupMessages(library(dplyr))
@@ -17,9 +17,8 @@ suppressPackageStartupMessages(library(scoper))
 library(ggpubr)
 library(gridExtra)
 
-setwd(setwd("D:/Onedrive/PhD/Projecten/project - IGHVseq/databases/clones"))
-
-# read data 
+# reading data ----
+setwd("D:/Onedrive/PhD/Projecten/project - IGHVseq/databases/clones")
 ACS <- read_rearrangement(file.path("D:/Onedrive/PhD/Projecten/project - IGHVseq/databases/clones/ACS.tsv"))
 colnames(ACS) # show the column names in the database
 
@@ -57,15 +56,5 @@ plotBaselineDensity(grouped2, idColumn = "group", groupColumn = "subset",
 plotBaselineDensity(grouped2, idColumn = "subset", groupColumn = "group",
                     colorValues=subset_colors, sigmaLimits=c(-1, 1), size = 1.2, facetBy = 'subset')
 
-View(baseline)
-
 test <- testBaseline(grouped2, groupBy = 'subset')
-View(test)
-
-##
-##
-
-
-testBaseline(grouped2, groupBy = 'group')
-
-View(grouped2)
+test
